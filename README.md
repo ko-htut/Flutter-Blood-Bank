@@ -2,11 +2,12 @@
 
 A new Flutter project.
 
-## Getting Started
+## Preview
 
-This project is a starting point for a Flutter application.
+The effect of some pages is as follows:
 
-A few resources to get you started if this is your first Flutter project:
+| ![](https://raw.githubusercontent.com/ko-htut/Flutter-Blood-Bank/master/blood.png)) | ![](https://raw.githubusercontent.com/ko-htut/Flutter-Blood-Bank/master/blood.png)) | ![](https://raw.githubusercontent.com/ko-htut/Flutter-Blood-Bank/master/blood.png)) | ![](https://raw.githubusercontent.com/ko-htut/Flutter-Blood-Bank/master/blood.png)) |
+<!-- |:-----------------------------------------------------:|:-----------------------------------------------------:|:-----------------------------------------------------:|:-----------------------------------------------------:| -->
+<!-- | ![](https://raw.githubusercontent.com/ko-htut/Flutter-Blood-Bank/master/blood.png)) | ![](https://raw.githubusercontent.com/ko-htut/Flutter-Blood-Bank/master/blood.png)) | ![](https://raw.githubusercontent.com/ko-htut/Flutter-Blood-Bank/master/blood.png)) | ![](https://raw.githubusercontent.com/ko-htut/Flutter-Blood-Bank/master/blood.png)) |                                           -->
 
-![](https://raw.githubusercontent.com/ko-htut/Flutter-Blood-Bank/master/blood.png)
 
