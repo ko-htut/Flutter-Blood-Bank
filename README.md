@@ -7,5 +7,5 @@ A new Flutter project.
 The effect of some pages is as follows:
 
 
-| ![](https://kohtut.dev/img/Screenshot_1588094849.png) | ![](https://kohtut.dev/img/Screenshot_1588094861.png) | ![](https://kohtut.dev/img/Screenshot_1588094869.png) | ![](https://kohtut.dev/img/Screenshot_1588094875.png) | 
+| ![](https://raw.githubusercontent.com/ko-htut/Flutter-Blood-Bank/master/dashboard.png) | ![](https://raw.githubusercontent.com/ko-htut/Flutter-Blood-Bank/master/blood.png) | ![](https://raw.githubusercontent.com/ko-htut/Flutter-Blood-Bank/master/donarlist.png) | ![](https://raw.githubusercontent.com/ko-htut/Flutter-Blood-Bank/master/profile.png) | 
 |:-----------------------------------------------------:|:-----------------------------------------------------:|:-----------------------------------------------------:|:-----------------------------------------------------:|
