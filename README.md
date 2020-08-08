@@ -40,3 +40,12 @@ The effect of some pages is as follows:
 | Name | METHOD | URL |REQUEST |
 |-----|-----|-----|-----|
 | Register | Post | /register | name*, email*, password* |
+| Login | Post | /register | email*, password* |
+| Detail | Post | /register | - |
+| Donar - Status | Post | /register | status* [integer 0,1] |
+| Donar - Password | Post | /register | password*|
+| Donar - Create | Post | /register | name*, email*, password*, phone*, blood_type*, city*, address*, image* [file] |
+| Donar - Update | Post | /register | name*, email*, phone*, blood_type*, city*, address*, image* [file] |
+| Donar - Delete | Post | /register | donar_id*[integer]|
+| Donar - List | Post | /register | - |
+| Donar - History | Post | /donar/history | donar_id*[integer] |
