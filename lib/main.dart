@@ -6,7 +6,6 @@ import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
-
 import 'application.dart';
 
 void main() {
@@ -16,10 +15,7 @@ void main() {
   Application.setupLocator();
   LogUtil.init(tag: 'Blood_Bank');
   Provider.debugCheckInvalidValueType = null;
-  runApp(MultiProvider(
-    providers: [],
-    child: MyApp(),
-  ));
+  runApp(MyApp(),);
 }
 
 class MyApp extends StatelessWidget {
