@@ -1,6 +1,10 @@
-# blood_donation
+# Blood Bank Flutter Admin Application
 
-A new Flutter project.
+## Feature
+
+- Admin Login & register
+- Detail
+- Donar ` Status` `Create` `Update` `Delete` `List` `History` `Password change`
 
 ## Preview
 
