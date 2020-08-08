@@ -4,7 +4,7 @@
 
 - Admin Login & register
 - Detail
-- Donar ` Status` `Create` `Update` `Delete` `List` `History` `Password change`
+- Donar ` Status`  , `Create` ,`Update` , `Delete` , `List` ,  `History` & `Password change`
 
 ## Preview
 
