@@ -14,6 +14,7 @@ The effect of some pages is as follows:
 |:-----------------------------------------------------:|:-----------------------------------------------------:|:-----------------------------------------------------:|:-----------------------------------------------------:|
 | ![](https://raw.githubusercontent.com/ko-htut/Flutter-Blood-Bank/master/adminlogin.png) | ![](https://raw.githubusercontent.com/ko-htut/Flutter-Blood-Bank/master/userregister.png) | ![](https://raw.githubusercontent.com/ko-htut/Flutter-Blood-Bank/master/donarlist.png) | ![](https://raw.githubusercontent.com/ko-htut/Flutter-Blood-Bank/master/profile.png) | 
 
+## Using Library
 
 | Library                                                                                    | Features                      |
 |--------------------------------------------------------------------------------------------|-------------------------------|
@@ -32,3 +33,10 @@ The effect of some pages is as follows:
 | [extended_text](https://pub.dev/packages/extended_text)                                    | **special text** |
 | [loading_more_list](https://pub.dev/packages/loading_more_list)                                | **oading more list** |
 
+## Api
+
+- main url ( https://mohnyin.net/api/v1/admin )
+
+| Name | METHOD | URL |REQUEST |
+|-----|-----|-----|-----|
+| Register | Post | /register | name*, email*, password* |
