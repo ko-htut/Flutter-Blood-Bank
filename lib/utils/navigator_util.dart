@@ -18,8 +18,23 @@ class NavigatorUtil {
         transition: TransitionType.material);
   }
 
-    static void goHomePage(BuildContext context) {
+  static void goHomePage(BuildContext context) {
     _navigateTo(context, Routes.home, clearStack: true);
   }
 
+  static void goLoginPage(BuildContext context) {
+    _navigateTo(context, Routes.login, clearStack: true);
+  }
+
+  static void goRegisterPage(BuildContext context) {
+    _navigateTo(context, Routes.register, clearStack: true);
+  }
+
+  static void goProfilePage(BuildContext context) {
+    _navigateTo(context, Routes.profile, clearStack: false);
+  }
+
+  static void goUserProfilePage(BuildContext context) {
+    _navigateTo(context, Routes.userprofile, clearStack: false);
+  }
 }

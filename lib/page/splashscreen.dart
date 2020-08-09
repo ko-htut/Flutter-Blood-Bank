@@ -15,7 +15,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(Duration(milliseconds: 500), () {
+    Future.delayed(Duration(milliseconds: 1000), () {
       goPage();
     });
   }
@@ -61,7 +61,7 @@ class _SplashScreenState extends State<SplashScreen> {
             alignment: Alignment.bottomCenter,
             child: Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Text("Copyrightc2020 Mohnyin Blood Bank"),
+              child: Text("Copyright©2020 Mohnyin Blood Bank"),
             ),
           ),
         ],

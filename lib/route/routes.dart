@@ -8,6 +8,8 @@ class Routes {
   static String home = "/home";
   static String login = "/login";
   static String register = "/register";
+  static String profile = "/profile";
+  static String userprofile = "/userprofile";
   static void configureRoutes(Router router) {
     router.notFoundHandler = new Handler(
         handlerFunc: (BuildContext context, Map<String, List<String>> params) {
@@ -15,8 +17,10 @@ class Routes {
       return LoginPage();
     });
     router.define(root, handler: splashHandler);
-    // router.define(login, handler: loginHandler);
-    // router.define(register, handler: registerHandler);
+    router.define(login, handler: loginHandler);
+    router.define(register, handler: registerHandler);
     router.define(home, handler: homeHandler);
+    router.define(profile, handler: profileHandler);
+    router.define(userprofile, handler: userprofileHandler);
   }
 }
