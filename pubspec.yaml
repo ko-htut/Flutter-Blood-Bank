@@ -40,6 +40,7 @@ dependencies:
   fluttertoast: ^7.0.2
   page_transition: ^1.1.6
   shared_preferences: ^0.5.8
+  bubble_tab_indicator: ^0.1.4
 
 dev_dependencies:
   flutter_test:

@@ -1,5 +1,8 @@
 import 'package:ant_icons/ant_icons.dart';
+import 'package:blood_donation/application.dart';
+import 'package:blood_donation/utils/navigator_util.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SplashScreen extends StatefulWidget {
   SplashScreen({Key key}) : super(key: key);
@@ -10,7 +13,25 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   @override
+  void initState() {
+    super.initState();
+    Future.delayed(Duration(milliseconds: 500), () {
+      goPage();
+    });
+  }
+
+  void goPage() {
+    NavigatorUtil.goHomePage(context);
+  }
+
+  @override
   Widget build(BuildContext context) {
+    ScreenUtil.init(context, width: 750, height: 1334);
+    final size = MediaQuery.of(context).size;
+    Application.screenWidth = size.width;
+    Application.screenHeight = size.height;
+    Application.statusBarHeight = MediaQuery.of(context).padding.top;
+    Application.bottomBarHeight = MediaQuery.of(context).padding.bottom;
     return Scaffold(
       body: Stack(
         children: [

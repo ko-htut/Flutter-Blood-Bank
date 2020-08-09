@@ -1,4 +1,5 @@
 import 'package:blood_donation/page/Auth/login_page.dart';
+import 'package:blood_donation/route/route_handles.dart';
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 
@@ -13,9 +14,9 @@ class Routes {
       print("ROUTE WAS NOT FOUND !!!");
       return LoginPage();
     });
-    // router.define(root, handler: splashHandler);
+    router.define(root, handler: splashHandler);
     // router.define(login, handler: loginHandler);
     // router.define(register, handler: registerHandler);
-    // router.define(home, handler: homeHandler);
+    router.define(home, handler: homeHandler);
   }
 }
