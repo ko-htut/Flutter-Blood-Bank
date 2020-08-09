@@ -35,12 +35,9 @@ class _HomePageState extends State<HomePage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-        child: AppBar(
-          title: Text("Mohnyin Blood Bank"),
-          elevation: 0,
-        ),
-        preferredSize: Size.fromHeight(Application.statusBarHeight * 1.2),
+      appBar: AppBar(
+        title: Text("Mohnyin Blood Bank"),
+        elevation: 0,
       ),
       backgroundColor: Colors.white,
       body: SafeArea(
