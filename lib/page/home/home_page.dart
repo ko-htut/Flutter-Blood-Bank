@@ -1,3 +1,6 @@
+import 'package:ant_icons/ant_icons.dart';
+import 'package:blood_donation/page/dashboard/dashboard_page.dart';
+import 'package:blood_donation/page/donar/donar_list_page.dart';
 import 'package:bubble_tab_indicator/bubble_tab_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -38,6 +41,28 @@ class _HomePageState extends State<HomePage>
       appBar: AppBar(
         title: Text("Mohnyin Blood Bank"),
         elevation: 0,
+        actions: [
+          Container(
+            width: 35,
+            height: 50,
+            margin: EdgeInsets.all(10.0),
+            decoration: BoxDecoration(
+                // color: Colors.redAccent,
+                shape: BoxShape.circle,
+                image: DecorationImage(
+                    image: NetworkImage(
+                      "https://i.pinimg.com/236x/dd/f9/17/ddf917e7b4dae879a1386f87d14b7152.jpg",
+                    ),
+                    fit: BoxFit.fill)),
+            // child: Padding(
+            //   padding: const EdgeInsets.all(5.0),
+            //   child: Icon(
+            //     AntIcons.user,
+            //     color: Colors.white,
+            //   ),
+            // ),
+          )
+        ],
       ),
       backgroundColor: Colors.white,
       body: SafeArea(
@@ -70,13 +95,7 @@ class _HomePageState extends State<HomePage>
                 Expanded(
                   child: TabBarView(
                     controller: _tabController,
-                    children: tabs.map((Tab tab) {
-                      return new Center(
-                          child: new Text(
-                        tab.text,
-                        style: new TextStyle(fontSize: 20.0),
-                      ));
-                    }).toList(),
+                    children: [DashboardPage(), DonarListPage()],
                   ),
                 ),
               ],
