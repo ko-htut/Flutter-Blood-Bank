@@ -21,7 +21,7 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   void goPage() {
-    NavigatorUtil.goHomePage(context);
+    NavigatorUtil.goLoginPage(context);
   }
 
   @override
