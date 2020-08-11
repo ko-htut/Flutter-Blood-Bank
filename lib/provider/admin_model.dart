@@ -21,7 +21,6 @@ class AdminModel with ChangeNotifier {
   }
 
   Future<Admin> login(BuildContext context, String phone, String pwd) async {
-
     Admin admin = await NetUtils.login(context, phone, pwd);
     Utils.showToast(admin.status.toString());
     _saveUserInfo(admin);
