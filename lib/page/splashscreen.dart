@@ -26,8 +26,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   void goPage() async {
     await Application.initSp();
-
-    AdminModel adminModel = Provider.of<AdminModel>(context, listen: false);
+    AdminModel adminModel = Provider.of<AdminModel>(context);
     adminModel.initUser();
     print("adminModel : $adminModel");
     if (adminModel.admin != null) {
@@ -38,7 +37,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    NetUtils.init();
+    NetUtils();
     ScreenUtil.init(context, width: 750, height: 1334);
     final size = MediaQuery.of(context).size;
     Application.screenWidth = size.width;

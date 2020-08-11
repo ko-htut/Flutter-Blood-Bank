@@ -114,7 +114,7 @@ class __LoginWidgetState extends State<_LoginWidget> {
 
   @override
   Widget build(BuildContext context) {
-    NetUtils.init();
+    NetUtils();
     return Theme(
       data: ThemeData(primaryColor: Colors.red),
       child: Column(
@@ -153,8 +153,7 @@ class __LoginWidgetState extends State<_LoginWidget> {
                     context,
                     email,
                     pwd,
-                  )
-                      .then((value) {
+                  ).then((value) {
                     if (value != null) {
                       NavigatorUtil.goHomePage(context);
                     }

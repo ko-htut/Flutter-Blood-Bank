@@ -6,23 +6,24 @@ import 'package:flutter/material.dart';
 import '../application.dart';
 import '../route/navigate_service.dart';
 import '../route/routes.dart';
-import 'config.dart';
 
 class NetUtils {
   static Dio _dio;
-  static final String baseUrl = Configs.rooturl;
+  static final String baseUrl = "https://mohnyin.net/api/v1/admin/";
 
-  static void init() async {}
-
-  static Future<Response> _get(
+  static Future<Response> _post(
     BuildContext context,
     String url, {
     Map<String, dynamic> params,
     bool isShowLoading = true,
+    dynamic data,
   }) async {
     if (isShowLoading) Loading.showLoading(context);
     try {
-      return await _dio.get(url, queryParameters: params);
+      return await _dio.post(
+        "$baseUrl$url",
+        data: data,
+      );
     } on DioError catch (e) {
       if (e == null) {
         return Future.error(Response(data: -1));
@@ -48,13 +49,19 @@ class NetUtils {
     });
   }
 
-  /// 登录
   static Future<Admin> login(
-      BuildContext context, String phone, String password) async {
-    var response = await _get(context, '/login', params: {
-      'phone': phone,
+      BuildContext context, String email, String password) async {
+    print("$email : $password");
+    var response = await _post(context, 'login', data: {
+      'email': email,
       'password': password,
     });
+    // Response tresponse =
+    //     await Dio().post("https://mohnyin.net/api/v1/admin/login", data: {
+    //   'email': email,
+    //   'password': password,
+    // });
+    print(response);
     return Admin.fromJson(response.data);
   }
 }
