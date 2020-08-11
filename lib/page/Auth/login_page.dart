@@ -1,7 +1,14 @@
 import 'package:ant_icons/ant_icons.dart';
+import 'package:blood_donation/provider/admin_model.dart';
+import 'package:blood_donation/utils/utils.dart';
+import 'package:blood_donation/widget/common_button.dart';
 import 'package:blood_donation/widget/v_empty_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
+
+import '../../utils/navigator_util.dart';
+import '../../utils/net_utils.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -107,7 +114,7 @@ class __LoginWidgetState extends State<_LoginWidget> {
 
   @override
   Widget build(BuildContext context) {
-    // NetUtils();
+    NetUtils.init();
     return Theme(
       data: ThemeData(primaryColor: Colors.red),
       child: Column(
@@ -115,7 +122,6 @@ class __LoginWidgetState extends State<_LoginWidget> {
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           VEmptyView(30),
-
           TextField(
             textInputAction: TextInputAction.next,
             controller: _phoneController,
@@ -131,34 +137,34 @@ class __LoginWidgetState extends State<_LoginWidget> {
             decoration: _getInputDec("Password", Icon(AntIcons.lock_outline)),
           ),
           VEmptyView(100),
-          // Consumer<UserModel>(
-          //   builder: (BuildContext context, UserModel value, Widget child) {
-          //     return CommonButton(
-          //       callback: () {
-          //         String email = _phoneController.text;
-          //         String pwd = _pwdController.text;
-          //         if (email.isEmpty || pwd.isEmpty) {
-          //           Utils.showToast(
-          //               'ကျေးဇူးပြု၍ သင်၏အကောင့်နံပါတ်သို့မဟုတ်လျှို့ဝှက်နံပါတ်ကိုရိုက်ထည့်ပါ');
-          //           return;
-          //         }
-          //         value
-          //             .login(
-          //           context,
-          //           email,
-          //           pwd,
-          //         )
-          //             .then((value) {
-          //           if (value != null) {
-          //             NavigatorUtil.goMainPage(context);
-          //           }
-          //         });
-          //       },
-          //       content: 'Login',
-          //       width: double.infinity,
-          //     );
-          //   },
-          // )
+          Consumer<AdminModel>(
+            builder: (BuildContext context, AdminModel value, Widget child) {
+              return CommonButton(
+                callback: () {
+                  String email = _phoneController.text;
+                  String pwd = _pwdController.text;
+                  if (email.isEmpty || pwd.isEmpty) {
+                    Utils.showToast(
+                        'ကျေးဇူးပြု၍ သင်၏အကောင့်နံပါတ်သို့မဟုတ်လျှို့ဝှက်နံပါတ်ကိုရိုက်ထည့်ပါ');
+                    return;
+                  }
+                  value
+                      .login(
+                    context,
+                    email,
+                    pwd,
+                  )
+                      .then((value) {
+                    if (value != null) {
+                      NavigatorUtil.goHomePage(context);
+                    }
+                  });
+                },
+                content: 'Login',
+                width: double.infinity,
+              );
+            },
+          )
         ],
       ),
     );

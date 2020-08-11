@@ -1,8 +1,12 @@
 import 'package:ant_icons/ant_icons.dart';
 import 'package:blood_donation/application.dart';
+import 'package:blood_donation/provider/admin_model.dart';
 import 'package:blood_donation/utils/navigator_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
+
+import '../utils/net_utils.dart';
 
 class SplashScreen extends StatefulWidget {
   SplashScreen({Key key}) : super(key: key);
@@ -15,17 +19,26 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(Duration(milliseconds: 1000), () {
+    Future.delayed(Duration(milliseconds: 2000), () {
       goPage();
     });
   }
 
-  void goPage() {
-    NavigatorUtil.goLoginPage(context);
+  void goPage() async {
+    await Application.initSp();
+
+    AdminModel adminModel = Provider.of<AdminModel>(context, listen: false);
+    adminModel.initUser();
+    print("adminModel : $adminModel");
+    if (adminModel.admin != null) {
+      NavigatorUtil.goHomePage(context);
+    } else
+      NavigatorUtil.goLoginPage(context);
   }
 
   @override
   Widget build(BuildContext context) {
+    NetUtils.init();
     ScreenUtil.init(context, width: 750, height: 1334);
     final size = MediaQuery.of(context).size;
     Application.screenWidth = size.width;
