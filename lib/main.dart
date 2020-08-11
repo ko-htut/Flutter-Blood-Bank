@@ -1,4 +1,5 @@
 import 'package:blood_donation/page/splashscreen.dart';
+import 'package:blood_donation/provider/admin_model.dart';
 import 'package:blood_donation/route/navigate_service.dart';
 import 'package:blood_donation/route/routes.dart';
 import 'package:common_utils/common_utils.dart';
@@ -15,7 +16,14 @@ void main() {
   Application.setupLocator();
   LogUtil.init(tag: 'Blood_Bank');
   Provider.debugCheckInvalidValueType = null;
-  runApp(MyApp(),);
+  runApp(MultiProvider(
+    providers: [
+      ChangeNotifierProvider<AdminModel>(
+        create: (_) => AdminModel(),
+      ),
+    ],
+    child: MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {

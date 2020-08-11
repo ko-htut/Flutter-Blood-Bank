@@ -41,6 +41,7 @@ dependencies:
   page_transition: ^1.1.6
   shared_preferences: ^0.5.8
   bubble_tab_indicator: ^0.1.4
+  extended_image: ^1.1.0
 
 dev_dependencies:
   flutter_test:
