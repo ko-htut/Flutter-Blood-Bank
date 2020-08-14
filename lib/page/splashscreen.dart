@@ -27,7 +27,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void goPage() async {
     await Application.initSp();
     AdminModel adminModel = Provider.of<AdminModel>(context);
-    adminModel.initUser();
+    adminModel.initUser(context);
     print("adminModel : $adminModel");
     if (adminModel.admin != null) {
       NavigatorUtil.goHomePage(context);

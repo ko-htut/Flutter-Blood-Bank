@@ -1,6 +1,11 @@
 import 'package:ant_icons/ant_icons.dart';
+import 'package:blood_donation/model/donar_list_model.dart';
 import 'package:blood_donation/utils/navigator_util.dart';
+import 'package:blood_donation/utils/net_utils.dart';
+import 'package:blood_donation/widget/common_text_style.dart';
+import 'package:blood_donation/widget/widget_future_builder.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DonarListPage extends StatefulWidget {
   DonarListPage({Key key}) : super(key: key);
@@ -10,7 +15,7 @@ class DonarListPage extends StatefulWidget {
 }
 
 class _DonarListPageState extends State<DonarListPage> {
-  Widget _item() {
+  Widget _item(Datum datum) {
     return Card(
       elevation: 0,
       child: GestureDetector(
@@ -24,6 +29,7 @@ class _DonarListPageState extends State<DonarListPage> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
+                // https://mohnyin.net/images/donar/1596977054_donar.jpg
                 Padding(
                   padding: EdgeInsets.only(left: 5.0, right: 5.0),
                   child: Container(
@@ -31,7 +37,7 @@ class _DonarListPageState extends State<DonarListPage> {
                     width: 80,
                     child: Image(
                         image: NetworkImage(
-                            "https://i.pinimg.com/236x/dd/f9/17/ddf917e7b4dae879a1386f87d14b7152.jpg")),
+                            "https://mohnyin.net/images/donar/${datum.image}"),fit: BoxFit.fill,),
                   ),
                 ),
                 Expanded(
@@ -42,9 +48,9 @@ class _DonarListPageState extends State<DonarListPage> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text("Eromanga Sensei"),
-                          Text("Japan"),
-                          Text("AB +", style: TextStyle(color: Colors.red)),
+                          Text(datum.name),
+                          Text(datum.city),
+                          Text(datum.bloodType, style: TextStyle(color: Colors.red)),
                         ],
                       ),
                     ),
@@ -81,21 +87,16 @@ class _DonarListPageState extends State<DonarListPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
-        child: Column(
-          children: [
-            _item(),
-            _item(),
-            _item(),
-            _item(),
-            _item(),
-            _item(),
-            _item(),
-            _item(),
-            _item(),
-            _item(),
-          ],
-        ),
-      ),
+          child: CustomFutureBuilder<DonarList>(
+        futureFunc: NetUtils.getdonarlist,
+        builder: (context, data) {
+          return Container(
+            child: Column(
+              children: data.data.map((e) => (_item(e))).toList(),
+            ),
+          );
+        },
+      )),
     );
   }
 }

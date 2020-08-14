@@ -1,8 +1,13 @@
+import 'dart:io';
+
 import 'package:blood_donation/model/admin_model.dart';
+import 'package:blood_donation/model/donar_list_model.dart';
+import 'package:blood_donation/provider/admin_model.dart';
 import 'package:blood_donation/utils/utils.dart';
 import 'package:blood_donation/widget/loading.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../application.dart';
 import '../route/navigate_service.dart';
 import '../route/routes.dart';
@@ -15,15 +20,14 @@ class NetUtils {
     BuildContext context,
     String url, {
     Map<String, dynamic> params,
-    bool isShowLoading = true,
     dynamic data,
+    Options options,
+    bool isShowLoading = true,
   }) async {
     if (isShowLoading) Loading.showLoading(context);
     try {
-      return await _dio.post(
-        "$baseUrl$url",
-        data: data,
-      );
+      return await _dio.post("$baseUrl$url",
+          queryParameters: params, data: data, options: options);
     } on DioError catch (e) {
       if (e == null) {
         return Future.error(Response(data: -1));
@@ -63,5 +67,32 @@ class NetUtils {
     // });
     print(response);
     return Admin.fromJson(response.data);
+  }
+
+  // ignore: missing_return
+  static Future<DonarList> getdonarlist(
+    BuildContext context,
+  ) async {
+    AdminModel adminModel = Provider.of<AdminModel>(context);
+    adminModel.initUser(context);
+    String token = adminModel.admin.data.token;
+    Loading.showLoading(context);
+    try {
+       Loading.showLoading(context);
+      Response response = await Dio().post(
+          "https://mohnyin.net/api/v1/admin/donar/list",
+          options: Options(
+              headers: {HttpHeaders.authorizationHeader: "Bearer $token"}));
+      return DonarList.fromJson(response.data);
+    } on DioError catch (e) {
+      print("error $e");
+    } finally {
+       Loading.hideLoading(context);
+    }
+
+    // var response = await _post(context, 'donar/list',
+    //     options: Options(
+    //         headers: {HttpHeaders.authorizationHeader: "Bearer $token"}),
+    //     isShowLoading: false);
   }
 }

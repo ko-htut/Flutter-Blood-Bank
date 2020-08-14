@@ -13,10 +13,11 @@ class AdminModel with ChangeNotifier {
 
   Admin get admin => _admin;
 
-  void initUser() {
+  void initUser(BuildContext context) {
     if (Application.sp.containsKey('admin')) {
       String s = Application.sp.getString('admin');
       _admin = Admin.fromJson(json.decode(s));
+      print(_admin.data.email);
     }
   }
 
