@@ -1,7 +1,5 @@
-
 import 'package:common_utils/common_utils.dart';
 import 'package:dio/dio.dart';
-
 
 class CustomLogInterceptor extends LogInterceptor {
   CustomLogInterceptor({
@@ -13,18 +11,19 @@ class CustomLogInterceptor extends LogInterceptor {
     error = true,
     logSize = 9999999,
   }) : super(
-            request: request,
-            requestHeader: requestHeader,
-            requestBody: requestBody,
-            responseHeader: responseHeader,
-            responseBody: responseBody,
-            error: error,
-            logSize: logSize);
+          request: request,
+          requestHeader: requestHeader,
+          requestBody: requestBody,
+          responseHeader: responseHeader,
+          responseBody: responseBody,
+          error: error,
+        );
 
   @override
   printKV(String key, Object v) {
     LogUtil.e('$key: $v');
   }
+
   @override
   printAll(msg) {
     LogUtil.e('$msg');
