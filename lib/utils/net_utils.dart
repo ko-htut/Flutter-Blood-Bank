@@ -60,11 +60,6 @@ class NetUtils {
       'email': email,
       'password': password,
     });
-    // Response tresponse =
-    //     await Dio().post("https://mohnyin.net/api/v1/admin/login", data: {
-    //   'email': email,
-    //   'password': password,
-    // });
     print(response);
     return Admin.fromJson(response.data);
   }
@@ -78,7 +73,7 @@ class NetUtils {
     String token = adminModel.admin.data.token;
     Loading.showLoading(context);
     try {
-       Loading.showLoading(context);
+      Loading.showLoading(context);
       Response response = await Dio().post(
           "https://mohnyin.net/api/v1/admin/donar/list",
           options: Options(
@@ -87,12 +82,7 @@ class NetUtils {
     } on DioError catch (e) {
       print("error $e");
     } finally {
-       Loading.hideLoading(context);
+      Loading.hideLoading(context);
     }
-
-    // var response = await _post(context, 'donar/list',
-    //     options: Options(
-    //         headers: {HttpHeaders.authorizationHeader: "Bearer $token"}),
-    //     isShowLoading: false);
   }
 }
